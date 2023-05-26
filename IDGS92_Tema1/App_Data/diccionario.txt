@@ -1,0 +1,4 @@
+window, ventana
+orange, naranja
+love,amor
+ball,pelota

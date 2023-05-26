@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "ObtenerDatos";
+}
+
+<div class="row justify-content-center">
+    <div class="col-12 text-center">
+        @if (ViewBag.EsTriangulo)
+        {
+            <h3>Es un triangulo del tipo @ViewBag.TipoTriangulo con area @ViewBag.Area</h3>
+        }
+        else
+        {
+            <h3>No es un triangulo</h3>
+        }
+    </div>
+</div>

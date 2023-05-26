@@ -1,0 +1,81 @@
+﻿@model IDGS92_Tema1.Models.Triangulo
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("ObtenerDatos", "Triangulos", FormMethod.Post)) 
+{
+<div class="form-horizontal">
+    <h4>Triangulo</h4>
+    <hr />
+    <div class="row">
+        <div class="col-3">
+            <div class="form-group">
+                @Html.LabelFor(model => model.x1, htmlAttributes: new { @class = "control-label" })
+                <div>
+                    @Html.EditorFor(model => model.x1, new { htmlAttributes = new { @class = "form-control", @step = "any" } })
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="form-group">
+                @Html.LabelFor(model => model.y1, htmlAttributes: new { @class = "control-label" })
+                <div>
+                    @Html.EditorFor(model => model.y1, new { htmlAttributes = new { @class = "form-control", @step = "any" } })
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-3">
+            <div class="form-group">
+                @Html.LabelFor(model => model.x2, htmlAttributes: new { @class = "control-label" })
+                <div>
+                    @Html.EditorFor(model => model.x2, new { htmlAttributes = new { @class = "form-control", @step = "any" } })
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="form-group">
+                @Html.LabelFor(model => model.y2, htmlAttributes: new { @class = "control-label" })
+                <div>
+                    @Html.EditorFor(model => model.y2, new { htmlAttributes = new { @class = "form-control", @step = "any" } })
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-3">
+            <div class="form-group">
+                @Html.LabelFor(model => model.x3, htmlAttributes: new { @class = "control-label" })
+                <div>
+                    @Html.EditorFor(model => model.x3, new { htmlAttributes = new { @class = "form-control", @step = "any" } })
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="form-group">
+                @Html.LabelFor(model => model.y3, htmlAttributes: new { @class = "control-label" })
+                <div>
+                    @Html.EditorFor(model => model.y3, new { htmlAttributes = new { @class = "form-control", @step = "any" } })
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-12">
+                <input type="submit" value="Calcular" class="btn btn-primary" />
+                <a href="/Triangulos/VerHistorial" class="btn btn-info">Ver historial de calculos</a>
+            </div>
+        
+        </div>
+    </div>
+</div>
+}

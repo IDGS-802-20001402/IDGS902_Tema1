@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Calcular";
+    int i = 1;
+}
+
+<h2>Calcular</h2>
+
+<h1>Minimo: @ViewBag.min</h1>
+<h1>Maximo: @ViewBag.max</h1>
+<h1>Suma: @ViewBag.sum</h1>
+<h1>Promedio: @ViewBag.prom</h1>
+<h1>Duplicados: </h1>
+<h2>
+    @foreach (int numero in ViewBag.duplicados)
+    {
+        @numero 
+        if (i < ViewBag.duplicados.Count) { 
+            <span>, </span>
+        }
+
+        { 
+            i++;
+        }
+    }
+</h2>

@@ -1,0 +1,45 @@
+﻿@model IDGS92_Tema1.Models.Distancia
+
+@{
+    ViewBag.Title = "DistanciaPuntos";
+}
+
+<h2>DistanciaPuntos</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <form action="/" method="post">
+
+                @*<input type="radio" name="opera" value="suma" />
+        <label>Suma</label>
+        <input type="radio" name="opera" value="resta" />
+        <label>Resta</label>
+        <input type="radio" name="opera" value="multipliacion" />
+        <label>Multiplicacion</label>
+        <input type="radio" name="opera" value="division" />
+        <label>Division</label>
+        <br />*@
+                <label>Coordenada X1</label>
+                <input type="text" name="CordenadaX1" value="" />
+                <br />
+                <label>Coordenada X2</label>
+                <input type="text" name="CordenadaX2" value="" />
+                <br />
+                <label>Coordenada Y1</label>
+                <input type="text" name="CordenadaY1" value="" />
+                <br />
+                <label>Coordenada Y2</label>
+                <input type="text" name="CordenadaY2" value="" />
+                <br />
+
+                <input type="submit" name="name" value="Calcular" />
+            </form>
+        </div>
+        <div class="col-lg-6">
+            <h1>
+                La distancia es @Html.DisplayFor(model => model.DistanciaTotal)
+            </h1>
+        </div>
+    </div>
+</div>

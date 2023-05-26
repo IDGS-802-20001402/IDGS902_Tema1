@@ -1,0 +1,93 @@
+﻿@model IDGS92_Tema1.Models.Traduccion
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Guarda tu traduccion
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("GuardarTraduccion", "Traductor", FormMethod.Post, htmlAttributes: new { @class= "m-2" }))
+                    {
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.Ingles, "Palabra en inglés", htmlAttributes: new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Ingles, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group mt-4 row">
+                            @Html.LabelFor(model => model.Espanol, "Palabra en español", htmlAttributes: new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Espanol, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group text-center mt-4">
+                            <button type="submit" class="btn btn-primary">Traducir</button>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Lista de palabras
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm())
+                    {
+                        <div class="form-group row">
+                            <div class="col-md-4">
+                                <label class="form-label">Palabra</label>
+
+                            </div>
+                            <div class="col-md-8">
+                                @Html.RadioButton("idioma", "ingles")
+                                <label class="form-label">Palabra en inglés</label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                @Html.RadioButton("idioma", "espanol")
+                                <label class="form-label">Palabra en español</label>
+                            </div>
+                            <div class=" row col-md-10">
+                                <input type="text" name="palabra" class="form-control" />
+                            </div>
+                            <div class=" row col-md-2 ms-2">
+                                <button type="submit" class="btn btn-primary">Buscar</button>
+                            </div>
+                        </div>
+                    }
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Palabra en inglés</th>
+                                <th>Palabra en español</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ViewBag.Diccionario != null)
+                            {
+                                foreach (var item in ViewBag.Diccionario)
+                                {
+                                    <tr>
+                                        <td>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(item.Key)</td>
+                                        <td>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(item.Value)</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                    <a href="@Url.Action("Index", "Traductor")" class="btn btn-primary">Mostrar todo</a>
+            </div>
+
+        </div>
+    </div>
+
+</p>
+
+
+
